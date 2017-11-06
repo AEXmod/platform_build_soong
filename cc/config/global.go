@@ -75,7 +75,7 @@ var (
 	GccCppStdVersion          = "gnu++11"
 	ExperimentalCStdVersion   = "gnu11"
 	ExperimentalCppStdVersion = "gnu++1z"
-	SDClang                   = false
+	SDClang                   = true
 )
 
 var pctx = android.NewPackageContext("android/soong/cc/config")
@@ -170,8 +170,8 @@ func init() {
 }
 
 func setSdclangVars() {
-	sdclangPath := ""
-	sdclangPath2 := ""
+	sdclangPath := os.Getenv("SDCLANG_PATH")
+	sdclangPath2 := os.Getenv("SDCLANG_PATH2")
 	sdclangAEFlag := ""
 	sdclangFlags := ""
 	sdclangFlags2 := ""
@@ -194,7 +194,7 @@ func setSdclangVars() {
 		if err := decoder.Decode(&aeConfig); err == nil {
 			sdclangAEFlag = aeConfig.SDCLANG_AE_FLAG
 		} else {
-			panic(err)
+//			panic(err)
 		}
 	}
 
@@ -271,10 +271,10 @@ func setSdclangVars() {
 				fmt.Println("Clang SA is not enabled")
 			}
 		} else {
-			panic(err)
+//			panic(err)
 		}
 	} else {
-		fmt.Println(err)
+//		fmt.Println(err)
 	}
 
 	// Override SDCLANG if the varialbe is set in the environment
