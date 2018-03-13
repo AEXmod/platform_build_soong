@@ -18,11 +18,7 @@ import (
 	"github.com/google/blueprint"
 
 	"android/soong/android"
-	"fmt"
 )
-
-const cacheDirFormat = "-Wl,-plugin-opt,cache-dir=%s"
-const cachePolicyFormat = "-Wl,-plugin-opt,cache-policy=%s"
 
 // LTO (link-time optimization) allows the compiler to optimize and generate
 // code for the entire module at link time, rather than per-compilation
