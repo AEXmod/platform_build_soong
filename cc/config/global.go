@@ -96,7 +96,7 @@ var (
 
 	hostGlobalLdflags = []string{}
 
-	hostGlobalLldflags = []string{}
+	hostGlobalLldflags = []string{"-fuse-ld=lld"}
 
 	commonGlobalCppflags = []string{
 		"-Wno-inconsistent-missing-override",
